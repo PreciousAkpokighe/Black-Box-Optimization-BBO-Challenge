@@ -1,9 +1,12 @@
 Black-Box Optimisation (BBO) Capstone Project
+
 Section 1: Project Overview
+
 This project focuses on optimising a set of unknown functions using a Black-Box Optimisation (BBO) approach. Since the mathematical form of the functions is not provided, optimisation is performed iteratively by selecting input values, observing outputs, and refining subsequent inputs based on performance.
 The project simulates real-world machine learning scenarios where systems must be optimised without direct knowledge of their internal structure.
 
 Section 2: Input and Output
+
 Number of functions: 8
 
 Input domain: Continuous values between 0 and 1
@@ -25,6 +28,7 @@ Section 3: Challenge Objective
 The objective of this project is to maximise the output values of eight unknown functions by identifying optimal input vectors within a bounded domain [0,1]^n.
 
 Section 4: Technical Approach
+
 Week 1: Initial Exploration
 Inputs were distributed across the search space.
 
