@@ -1,49 +1,122 @@
-# Black-Box-Optimization-BBO-Challenge: the structured BBO challenge
-Capstone project for Ml/AI Professional Certificate
+🚀 Black-Box Optimisation (BBO) Capstone Project
 
-**What is this challenge about?**
-This capstone project mimics a Bayesian optimisation-style competition, 
-in which i will try to find the maximum of eight unknown functions, 
-also known as black-box functions. I won't have the equations or visuals
-of these functions up front – just some initial data and the ability to make smart guesses.
-Each function simulates a real-world task such as radiation detection, robot control or drug discovery, 
-where evaluations are expensive or limited. Perfect solutions are not expected. I am 
-encouraged to demonstrate a sound trial-and-error process throughout this project.
+📌 Project Overview
 
-**What will you do?**
-I’ll be working with eight synthetic black-box functions. These are unknown mathematical functions 
-that accept inputs and return a single output. The goal is to find the inputs that give the highest 
-possible output for each function.
-Every function is a maximisation problem. I won't see the internal workings of the functions, 
-but I’ll be able to observe how they respond to different inputs.
+This project focuses on optimising a set of unknown functions using a Black-Box Optimisation (BBO) approach. Since the mathematical form of the functions is not provided, optimisation is performed iteratively by selecting input values, observing outputs, and refining subsequent inputs based on performance.
 
-**What if I don't find the best result?** 
-That's okay! In real-world ML, most progress is made not through perfect solutions but through 
-thoughtful iteration and practical reasoning.
-Weekly , for the next 10 weeks or so, i'll submit my query and complete the required reflection.
+The project demonstrates how optimisation can be achieved in real-world machine learning scenarios where the internal structure of a system is unknown or inaccessible.
 
-**What techniques can I use?**
-I am free to use any ML method to decide what input to query next. Here are some examples:
-Random search using np.random.uniform
-Grid search to evaluate points on a grid, such as 10,000 points
-Bayesian optimisation using a GP and acquisition functions such as UCB
-Manual reasoning using scatter plots or your own insight to pick the next best point
-Custom surrogate models to train an ML model to predict  and guide your query
+🎯 Objective
 
-**A note on what's NOT required**
-Write and submit an optimiser
-Build a full optimisation model from scratch
-Find the perfect global maximum for every function
-The task is to work with limited data, make smart decisions and reflect on the approach as it goes.
+The objective of this project is to maximise the output values of eight unknown functions by identifying optimal input vectors within a bounded domain [0,1]^n.
 
-**Summary**
+📊 Problem Setup
+	•	Number of functions: 8
+	•	Input domain: Continuous values between 0 and 1
+	•	Input dimensions: Vary per function (2D to 8D)
+	•	Output: Scalar value representing performance (fitness score)
 
-I am maximising eight unknown functions, one query per function per week.
+Each function behaves as a black box, meaning:
+	•	No gradients are available
+	•	No functional form is known
+	•	Only input-output pairs can be observed
 
-I choose the ML method, such as random, grid, Bayesian optimisation or manual.
+🔄 Methodology
 
-I submit my inputs in a precise format via the capstone project portal.
+▶️ Week 1: Initial Exploration
+	•	Inputs were selected using structured distributions across the domain.
+	•	Purpose: broad exploration of the search space.
+	•	Outcome: Established baseline performance for all functions.
 
-I reflect, revise and iterate over several rounds.
+▶️ Week 2: Guided Optimisation
+	•	Inputs were adjusted based on Week 1 outputs.
+	•	Strategy:
+	•	Exploitation: refine high-performing inputs (e.g., Function 5)
+	•	Exploration: move away from low-performing regions (e.g., Functions 4 and 6)
+	•	Outcome: Improved understanding of promising vs poor regions.
 
-Success isn't just the highest value – it’s showing thoughtful, data-driven decision-making in my reflection.
+▶️ Week 3: Comparative Refinement
+	•	Compared Week 1 vs Week 2 outputs for each function.
+	•	Strategy:
+	•	If performance improved → continue in same direction
+	•	If performance worsened → move back toward better region
+	•	If performance unclear → explore new region
+	•	Outcome: More targeted and efficient optimisation.
+
+🧠 Machine Learning Concepts Applied
+
+This project applies several core ML and optimisation principles:
+
+🔹 Black-Box Optimisation
+
+Optimisation without knowledge of the function structure, relying solely on observed outputs.
+
+🔹 Exploration vs Exploitation
+	•	Exploration: searching new regions
+	•	Exploitation: refining known high-performing regions
+
+Balancing both is critical for avoiding suboptimal solutions.
+
+🔹 Gradient-Free Optimisation
+
+Since gradients are unavailable, optimisation is performed using:
+	•	Heuristic search
+	•	Directional updates
+	•	Iterative refinement
+
+🔹 Iterative Learning
+
+The optimisation process is sequential:
+	1.	Submit inputs
+	2.	Observe outputs
+	3.	Update strategy
+	4.	Repeat
+
+Each iteration improves decision-making.
+
+🔹 Fitness Evaluation
+
+Outputs are treated as fitness scores:
+	•	Higher values → better solutions
+	•	Lower values → poor solutions
+
+💻 Implementation
+
+The optimisation strategy was implemented using:
+	•	Python (Jupyter Notebook)
+	•	NumPy for numerical operations
+
+Example Logic Used
+
+def generate_week3(w1, w2, y1, y2):
+    diff = w2 - w1
+
+    if y2 > y1:
+        # Continue in same direction
+        candidate = w2 + 0.6 * diff
+    else:
+        # Move back toward better region
+        candidate = w2 - 0.7 * diff
+
+    return np.clip(candidate, 0, 1)
+
+📈 Key Insights
+	•	Large variations in output values indicate non-linear and complex functions
+	•	Small input changes can lead to significant output differences
+	•	High-performing regions are often localised, requiring careful refinement
+	•	Poor regions must be actively avoided through exploration
+
+⚠️ Limitations
+	•	Limited number of iterations restricts full convergence
+	•	No visibility into function structure limits model-based optimisation
+	•	Possible presence of local optima
+
+🚀 Future Improvements
+	•	Implement Bayesian Optimisation for smarter sampling
+	•	Use surrogate models (e.g., Gaussian Processes)
+	•	Increase number of iterations for better convergence
+	•	Visualise search space for better interpretability
+
+🧾 Conclusion
+
+This project demonstrates how effective optimisation can be achieved without explicit knowledge of a system’s internal structure. By leveraging iterative learning, performance feedback, and a balance of exploration and exploitation, it is possible to progressively identify high-performing solutions.
