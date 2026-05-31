@@ -1,4 +1,8 @@
 Black-Box Optimisation (BBO) Capstone Project
+## Project Documentation
+
+- [Dataset Datasheet](DATASHEET%20FOR%20DATASET.docx)
+- [Model Card](MODEL%20CARD.docx)
 
 Section 1: Project Overview
 
