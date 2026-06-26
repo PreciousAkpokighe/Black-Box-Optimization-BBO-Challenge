@@ -3,7 +3,7 @@ Black-Box Optimisation (BBO) Capstone Project
 
 
 - [Dataset Datasheet](docs/DATASHEET_NEW.md)
-- [Model Card](docsa/MODEL_CARD_NEW.md)
+- [Model Card](docs/MODEL_CARD_NEW.md)
 
 Project Overview
 
