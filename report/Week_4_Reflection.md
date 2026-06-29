@@ -1,0 +1,12 @@
+# For Week 4, I applied a small neural network surrogate model to each function using input-output pairs from Weeks 1 to 3. The network was trained using stochastic gradient descent and backpropagation to learn an approximate relationship between inputs and outputs. Since only three observations were available per function, the model was treated as a heuristic guide rather than a fully reliable predictor. To reduce overfitting, candidate Week 4 points were sampled mainly near the best-performing historical input, with some global exploration retained. The final Week 4 inputs were selected based on the surrogate model's highest predicted outputs.
+
+In this iteration of the BBO project, I incorporated a neural network as a surrogate model to better approximate the relationship between inputs and outputs across the observed data points. Compared to earlier rounds where decisions were largely heuristic or based on simple comparisons, the neural network allowed for a more structured and data-driven approach to optimisation.
+
+Using backpropagation, the model was able to estimate gradients of the response surface, even though the true function is unknown. This directed insight into how small changes in inputs can affect outputs helps the search move toward regions of the input space more likely to yield good results. In particular, instead of making large exploratory jumps, the model encouraged more refined movements around high-performing regions identified in previous weeks.
+
+The use of stochastic gradient descent (SGD) enabled efficient training despite the small dataset, although it also highlighted a limitation: with only a few observations per function, the model risks overfitting and may not generalise well. I addressed this by combining neural network predictions with a controlled exploration strategy, ensuring that I still sampled some candidate points outside known regions.
+
+The neural network was better at finding possible nonlinear relationships in the black-box functions than simpler models such as linear regression. However, this added flexibility comes at the cost of interpretability and increased sensitivity to hyperparameters.
+
+Overall, incorporating neural networks and backpropagation improved my ability to reason about the optimisation process in a more principled way. It shifted my strategy from purely reactive adjustments to a more predictive, gradient-informed approach, which is better aligned with real-world machine learning workflows where the underlying system is unknown and must be learned iteratively.
+
