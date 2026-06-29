@@ -4,230 +4,145 @@ Black-Box Optimisation (BBO) Capstone Project
 
 - [Dataset Datasheet](docs/DATASHEET_NEW.md)
 - [Model Card](docs/MODEL%20CARD_NEW.md)
+# BLACK-BOX OPTIMIZATION (BBO) CAPSTONE PROJECT
 
-Project Overview
+## Non-Technical Explanation of the Project
 
-This repository contains my submission for the Black-Box Optimization (BBO) Challenge completed as part of the Machine Learning and Artificial Intelligence Professional Certificate programme.
+This project explores how Artificial Intelligence can solve complex optimisation problems when the mathematical formula of the problem is unknown. Instead of knowing exactly how each function works, the model learns from previous attempts by observing which inputs produced better results. Over thirteen weeks, different machine learning and optimisation techniques were progressively introduced to improve decision-making and identify better solutions. The project demonstrates how AI systems can efficiently search for optimal solutions while balancing exploration of new possibilities with exploitation of previously successful regions. It provides practical experience in optimisation under uncertainty and illustrates how modern machine learning techniques can support real-world decision-making where complete information is unavailable.
 
-The objective of the challenge is to optimize eight unknown black-box functions through iterative query submissions while operating under strict information constraints. At each stage, only input-output observations are available, requiring the development of increasingly sophisticated optimization strategies to identify high-performing regions of the search space.
+## Data
 
-Over twelve rounds of experimentation, this project evolved from basic exploratory sampling into a structured optimization framework incorporating machine learning, deep learning, clustering, Bayesian optimization, and dimensionality reduction techniques.
+The dataset consists of historical query inputs and corresponding objective function outputs collected over thirteen iterative rounds of the Imperial College London Black-Box Optimisation Capstone Project.
 
-Problem Statement
+Each weekly submission generated:
 
-The challenge consists of optimizing eight hidden objective functions ranging from 2-dimensional to 6-dimensional search spaces.
+- Eight optimisation queries (Functions 1–8)
+- Corresponding objective function evaluations
+- Historical optimisation trajectories
+- Performance observations across multiple optimisation strategies
 
-For each iteration:
+Rather than relying on an external dataset, the project progressively built its own optimisation history. Each new submission incorporated all previously observed inputs and outputs to refine future query selection.
 
-* New query points are submitted.
-* Function outputs are returned.
-* Historical observations are accumulated.
-* Optimization strategies are refined.
-* Future queries are generated using insights learned from prior rounds.
+**Data Source**
 
-Since the analytical form of the functions is unknown, all optimization decisions must be made using observed data only.
+- Imperial College London – Professional Certificate in Machine Learning and Artificial Intelligence (Emeritus)
+- Black-Box Optimisation Capstone Portal
+- Weeks 1–13 Query History
 
-Optimization Strategy Evolution
+## Model
 
-Week 1 – Baseline Exploration
+The optimisation framework evolved throughout the project rather than relying on a single model.
 
-* Uniform search space sampling
-* Initial performance assessment
-* Identification of promising and poor-performing regions
+Techniques progressively incorporated included:
 
-Week 2 – Bayesian Optimization
+- Random Search (Baseline)
+- Support Vector Regression (SVR)
+- Neural Network Regression
+- CNN-inspired optimisation concepts
+- Bayesian Optimisation
+- Ensemble Surrogate Modelling
+- K-Means Clustering
+- Principal Component Analysis (PCA)
+- Reinforcement Learning concepts
+  - Multi-Armed Bandits (MAB)
+  - Q-Learning
+  - Markov Decision Processes (MDPs)
 
-* Surrogate modelling
-* Exploration vs exploitation balancing
-* Candidate point generation
+The final optimisation strategy combined these approaches into a hybrid surrogate modelling framework capable of balancing local exploitation with global exploration while adapting to newly observed function evaluations.
 
-Week 3 – Support Vector Machine (SVM)
+## Hyperparameter Optimisation
 
-* Classification of high-performing and low-performing regions
-* Decision boundary analysis
-* Targeted query refinement
+Several optimisation strategies were investigated during the project to improve candidate selection while avoiding premature convergence.
 
-Week 4 – Neural Networks
+The primary hyperparameters explored included:
 
-* Feedforward neural network surrogate model
-* Stochastic Gradient Descent (SGD)
-* Backpropagation learning
+- Exploration vs exploitation ratio
+- Bayesian acquisition strategy
+- Local search radius
+- Cluster radius
+- Number of optimisation candidates
+- Ensemble weighting
+- PCA dimensionality reduction
+- Candidate sampling strategy
 
-Week 5 – Deep Learning Enhancement
+Bayesian Optimisation was introduced to guide hyperparameter tuning more efficiently than manual trial-and-error. Clustering techniques were later used to identify promising regions within the search space, while PCA reduced redundancy by preserving only the most informative patterns. During the final iteration, Reinforcement Learning concepts informed adaptive decision-making by balancing exploitation of historically successful regions with continued exploration of uncertain areas.
 
-* Multi-layer neural architecture
-* Improved nonlinear pattern detection
-* Local search refinement
+## Results
 
-Week 6 – CNN-Inspired Optimization
+Across thirteen optimisation rounds, the optimisation strategy became progressively more structured and data-driven.
 
-* Feature hierarchy concepts
-* Progressive pattern extraction
-* Structured exploration of promising regions
+Major outcomes included:
 
-Week 7 – Bayesian Hyperparameter Optimization
+- Successfully completed all thirteen optimisation rounds.
+- Built increasingly accurate surrogate models from historical observations.
+- Improved optimisation efficiency using Bayesian Optimisation.
+- Applied clustering to identify promising search regions.
+- Used PCA to simplify optimisation while preserving informative variance.
+- Incorporated Reinforcement Learning concepts to improve sequential decision-making.
+- Produced comprehensive project documentation including a Datasheet, Model Card and GitHub repository.
 
-* Hyperparameter tuning
-* Model configuration optimization
-* Improved search efficiency
+Performance varied across the eight objective functions. Some functions, particularly Function 5, responded well to exploitation-based strategies, while Functions 3, 4 and 6 remained challenging due to their complex response surfaces. These outcomes highlighted the importance of adaptive optimisation rather than relying on a single fixed search strategy.
 
-Week 8 – Scaling and Emergence
+Overall, the project demonstrated continuous improvement in optimisation methodology, technical implementation and reproducible machine learning practice.
 
-* Larger candidate search spaces
-* Emergent performance pattern analysis
-* Search diversification
+## Repository Structure
 
-Week 9 – Transparency and Interpretability
-
-* Explainable optimization decisions
-* Feature importance analysis
-* Strategy justification
-
-Week 10 – Model Cards and Datasheets
-
-* Reproducibility documentation
-* Strategy transparency
-* Optimization governance
-
-Week 11 – Clustering-Based Optimization
-
-* K-Means clustering
-* Cluster centroid exploration
-* Density-based candidate selection
-* Discovery of hidden performance patterns
-
-Week 12 – PCA-Based Optimization
-
-* Principal Component Analysis (PCA)
-* Variance-driven search
-* Redundancy reduction
-* Efficient dimensionality management
-
-
-Methodologies Applied
-
-Machine Learning
-
-* Support Vector Machines (SVM)
-* Random Forest Regression
-* Gradient Boosting
-* Gaussian Process Regression
-
-Deep Learning
-
-* Feedforward Neural Networks
-* Stochastic Gradient Descent
-* Backpropagation
-* CNN-inspired feature extraction
-
-Optimization
-
-* Bayesian Optimization
-* Exploitation vs Exploration balancing
-* Hyperparameter tuning
-* Surrogate modelling
-
-Unsupervised Learning
-
-* K-Means Clustering
-* PCA
-* Cluster-based sampling
-
-
-Repository Structure
+```
+Black-Box-Optimization-BBO-Challenge/
 
 ├── README.md
-├── Week 1
-│   ├── Inputs
-│   ├── Outputs
-│   └── Reflection
-├── Week 2
-│   ├── Bayesian Optimization
-├── Week 3
-│   ├── SVM Optimizer
-├── Week 4
-│   ├── Neural Network Model
-├── Week 5
-│   ├── Deep Learning Strategy
-├── Week 6
-│   ├── CNN-Inspired Optimization
-├── Week 7
-│   ├── Bayesian Hyperparameter Tuning
-├── Week 8
-│   ├── Scaling and Emergence
-├── Week 9
-│   ├── Explainable Optimization
-├── Week 10
-│   ├── Datasheet
-│   ├── Model Card
-├── Week 11
-│   ├── Clustering Optimization
-├── Week 12
-│   ├── PCA Optimization
-└── References
+├── LICENSE
+├── docs/
+│   ├── DATASHEET.md
+│   ├── MODEL_CARD.md
+│   └── References.md
+├── notebooks/
+│   ├── Week01.ipynb
+│   ├── ...
+│   └── Week13_Final.ipynb
+├── data/
+│   ├── Inputs/
+│   └── Outputs/
+└── reports/
+    ├── Weekly Reflections
+    └── Final Reflection
+```
 
+## Technologies Used
 
-Results and Key Findings
+- Python
+- Jupyter Notebook
+- NumPy
+- Pandas
+- Scikit-learn
+- PyTorch
+- SciPy
+- Matplotlib
 
-Successful Functions
+## References
 
-Several functions demonstrated consistent improvement through exploitation of high-performing regions:
+Brochu, E., Cora, V.M. & De Freitas, N. (2010) *A Tutorial on Bayesian Optimization of Expensive Cost Functions*. University of British Columbia.
 
-* Function 5 showed the strongest and most stable positive trend.
-* Functions 7 and 8 benefited from clustering-based refinement.
-* Local search strategies frequently outperformed global exploration.
+Goodfellow, I., Bengio, Y. & Courville, A. (2016) *Deep Learning*. MIT Press.
 
-Challenging Functions
+Sutton, R.S. & Barto, A.G. (2018) *Reinforcement Learning: An Introduction*. 2nd ed. MIT Press.
 
-Functions 3, 4, and 6 remained difficult to optimize due to:
+Bishop, C.M. (2006) *Pattern Recognition and Machine Learning*. Springer.
 
-* Complex response surfaces
-* Sparse high-performing regions
-* Greater sensitivity to local optima
+Pedregosa, F. et al. (2011) 'Scikit-learn: Machine Learning in Python', *Journal of Machine Learning Research*, 12, pp. 2825–2830.
 
-These functions required continued exploration alongside exploitation strategies.
+## Contact
 
+**Precious Akpokighe**
 
-Lessons Learned
+Professional Certificate in Machine Learning & Artificial Intelligence
 
-This project demonstrated that:
+Imperial College London (via Emeritus)
 
-1. Optimization performance improves significantly when exploration is gradually replaced by informed exploitation.
-2. Surrogate models become more effective as additional observations are collected.
-3. Clustering and PCA can reveal hidden structure within search spaces.
-4. Explainability and documentation are as important as raw optimization performance.
-5. No single optimization method performs best across all functions.
+GitHub: https://github.com/PreciousAkpokighe
 
+LinkedIn: https://www.linkedin.com/in/precious-akpokighe-ceh
 
-Technologies Used
+## License
 
-* Python
-* NumPy
-* Pandas
-* Scikit-Learn
-* TensorFlow
-* PyTorch
-* Matplotlib
-* Jupyter Notebook
-
-
-References
-
-Bishop, C.M. (2006). Pattern Recognition and Machine Learning. Springer.
-
-Goodfellow, I., Bengio, Y. and Courville, A. (2016). Deep Learning. MIT Press.
-
-Jolliffe, I.T. and Cadima, J. (2016). Principal Component Analysis: A Review and Recent Developments. Philosophical Transactions of the Royal Society A.
-
-Snoek, J., Larochelle, H. and Adams, R.P. (2012). Practical Bayesian Optimization of Machine Learning Algorithms. NeurIPS.
-
-Shahriari, B., Swersky, K., Wang, Z., Adams, R.P. and De Freitas, N. (2016). Taking the Human Out of the Loop: A Review of Bayesian Optimization. Proceedings of the IEEE.
-
-
-Author
-
-Precious Otas Akpokighe
-Machine Learning & Artificial Intelligence Professional Certificate Candidate
-Product Manager | Business Analyst | AI Enthusiast
-
-GitHub: PreciousAkpokighe
+This project is released under the MIT License.
