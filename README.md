@@ -4,6 +4,7 @@
 
 - [Dataset Datasheet](docs/DATASHEET_NEW.md)
 - [Model Card](docs/MODEL%20CARD_NEW.md)
+- [Final Reflection](report/Final%20Reflection.md)
 
 
 ## Non-Technical Explanation of the Project
